@@ -176,7 +176,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'gruvbox_light',
+        theme = 'gruvbox',
         component_separators = '|',
         section_separators = '',
       },
@@ -241,10 +241,17 @@ require('lazy').setup({
     end,
   },
 
+  -- Formatters runner
+  'mhartington/formatter.nvim',
+
+  -- TODO: Removed for now.
+  -- -- Install all required 3rd party tools
+  -- 'WhoIsSethDaniel/mason-tool-installer.nvim',
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
-  require 'kickstart.plugins.autoformat',
+  -- require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
@@ -253,7 +260,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -513,8 +520,8 @@ local servers = {
   clangd = {},
   jdtls = {},
   mdx_analyzer = {},
+  pyright = {},
   -- gopls = {},
-  -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
@@ -549,7 +556,82 @@ mason_lspconfig.setup_handlers {
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
     }
-  end
+  end,
+}
+
+-- -- [[ Configure mason-tool-installer ]]
+-- -- 3rd party tools for formatting, debugging, etc
+-- require('mason-tool-installer').setup {
+--
+--   -- a list of all tools you want to ensure are installed upon
+--   -- start; they should be the names Mason uses for each tool
+--   ensure_installed = {
+--     'stylua',
+--     'black',
+--     'google-java-format',
+--   },
+--
+--   -- if set to true this will check each tool for updates. If updates
+--   -- are available the tool will be updated. This setting does not
+--   -- affect :MasonToolsUpdate or :MasonToolsInstall.
+--   -- Default: false
+--   auto_update = false,
+--
+--   -- automatically install / update on startup. If set to false nothing
+--   -- will happen on startup. You can use :MasonToolsInstall or
+--   -- :MasonToolsUpdate to install tools and check for updates.
+--   -- Default: true
+--   run_on_start = true,
+--
+--   -- set a delay (in ms) before the installation starts. This is only
+--   -- effective if run_on_start is set to true.
+--   -- e.g.: 5000 = 5 second delay, 10000 = 10 second delay, etc...
+--   -- Default: 0
+--   start_delay = 3000, -- 3 second delay
+--
+--   -- Only attempt to install if 'debounce_hours' number of hours has
+--   -- elapsed since the last time Neovim was started. This stores a
+--   -- timestamp in a file named stdpath('data')/mason-tool-installer-debounce.
+--   -- This is only relevant when you are using 'run_on_start'. It has no
+--   -- effect when running manually via ':MasonToolsInstall' etc....
+--   -- Default: nil
+--   debounce_hours = 5, -- at least 5 hours between attempts to install/update
+-- }
+
+-- [[ Configure formatter.nvim ]]
+-- Utilities for creating configurations
+local util = require 'formatter.util'
+
+-- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
+require('formatter').setup {
+  -- Enable or disable logging
+  logging = true,
+  -- Set the log level
+  log_level = vim.log.levels.WARN,
+  -- All formatter configurations are opt-in
+  filetype = {
+    -- Formatter configurations for filetype "lua" go here
+    -- and will be executed in order
+    lua = {
+      -- "formatter.filetypes.lua" defines default configurations for the
+      -- "lua" filetype
+      require('formatter.filetypes.lua').stylua,
+    },
+    python = {
+      require('formatter.filetypes.python').isort,
+      require('formatter.filetypes.python').black,
+    },
+    -- Install this yourself - clangformat
+    java = { require('formatter.filetypes.java').clangformat },
+
+    -- Use the special "*" filetype for defining formatter configurations on
+    -- any filetype
+    ['*'] = {
+      -- "formatter.filetypes.any" defines default configurations for any
+      -- filetype
+      require('formatter.filetypes.any').remove_trailing_whitespace,
+    },
+  },
 }
 
 -- [[ Configure nvim-cmp ]]
