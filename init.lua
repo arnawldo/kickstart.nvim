@@ -94,7 +94,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
+      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -118,7 +118,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  { 'folke/which-key.nvim', opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -137,40 +137,36 @@ require('lazy').setup({
         -- don't override the built-in and fugitive keymaps
         local gs = package.loaded.gitsigns
         vim.keymap.set({ 'n', 'v' }, ']c', function()
-          if vim.wo.diff then return ']c' end
-          vim.schedule(function() gs.next_hunk() end)
+          if vim.wo.diff then
+            return ']c'
+          end
+          vim.schedule(function()
+            gs.next_hunk()
+          end)
           return '<Ignore>'
-        end, { expr = true, buffer = bufnr, desc = "Jump to next hunk" })
+        end, { expr = true, buffer = bufnr, desc = 'Jump to next hunk' })
         vim.keymap.set({ 'n', 'v' }, '[c', function()
-          if vim.wo.diff then return '[c' end
-          vim.schedule(function() gs.prev_hunk() end)
+          if vim.wo.diff then
+            return '[c'
+          end
+          vim.schedule(function()
+            gs.prev_hunk()
+          end)
           return '<Ignore>'
-        end, { expr = true, buffer = bufnr, desc = "Jump to previous hunk" })
+        end, { expr = true, buffer = bufnr, desc = 'Jump to previous hunk' })
       end,
     },
   },
 
-  -- This will be my backup theme
-  {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
-    config = function()
-      vim.opt.background = 'light'
-      vim.cmd [[colorscheme onedark]]
-    end
-  },
-
-
+  -- -- This will be my backup theme
   -- {
-  --   'ericbn/vim-solarized',
+  --   -- Theme inspired by Atom
+  --   'navarasu/onedark.nvim',
   --   priority = 1000,
   --   config = function()
-  --     vim.cmd[[syntax enable]]
   --     vim.opt.background = 'light'
-  --     vim.cmd[[colorscheme solarized]]
+  --     vim.cmd [[colorscheme onedark]]
   --   end
-  --
   -- },
 
   {
@@ -192,7 +188,7 @@ require('lazy').setup({
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
-    main = "ibl",
+    main = 'ibl',
     opts = {},
   },
 
@@ -230,12 +226,12 @@ require('lazy').setup({
   },
 
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+      'MunifTanjim/nui.nvim',
     },
     config = function()
       require('neo-tree').setup {}
@@ -243,7 +239,6 @@ require('lazy').setup({
     init = function()
       vim.keymap.set('n', '<leader>nt', ':Neotree toggle<CR>', { desc = 'Open [N]eo[T]ree' })
     end,
-
   },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
@@ -305,7 +300,6 @@ vim.o.termguicolors = true
 -- Keep at least 4 lines below the cursor
 vim.o.scrolloff = 4
 
-
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
@@ -317,12 +311,11 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', '<Leader>vr', ':e ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true })
 
 -- Source init.lua
-vim.keymap.set('n', '<Leader>sor', ':source ~/.config/nvim/init.lua<CR>',
-  { noremap = true, silent = true, desc = "[SO]u[r]ce init.lua" })
+vim.keymap.set('n', '<Leader>sor', ':source ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true, desc = '[SO]u[r]ce init.lua' })
 
 -- Exit INSERT mode by pressing jk or kj, write to file after
-vim.keymap.set('i', 'jk', '<Esc>:w<cr>', { noremap = true, silent = true })
-vim.keymap.set('i', 'kj', '<Esc>:w<cr>', { noremap = true, silent = true })
+vim.keymap.set('i', 'jk', '<Esc>:w<CR>', { noremap = true, silent = true, desc = 'Write buffer' })
+vim.keymap.set('i', 'kj', '<Esc>:w<CR>', { noremap = true, silent = true, desc = 'Write buffer' })
 
 -- Move between tabs
 vim.keymap.set('n', '<Leader>tn', ':tabnext<CR>', { noremap = true, silent = true, desc = 'Tab Next' })
@@ -331,7 +324,6 @@ vim.keymap.set('n', '<Leader>tp', ':tabprevious<CR>', { noremap = true, silent =
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -486,7 +478,8 @@ local on_attach = function(_, bufnr)
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   -- nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-  vim.keymap.set('i', '<C-k>', vim.lsp.bug.signature_help, { buffer = bufnr, desc = 'Signature Documentation' })
+  -- vim.keymap.set('i', '<C-k>', vim.lsp.bug.signature_help, { buffer = bufnr, desc = 'Signature Documentation' })
+  nmap('<leader>fmt', ':Format<CR>', '[F]or[M]a[T] Document')
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -495,16 +488,10 @@ local on_attach = function(_, bufnr)
   nmap('<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
-
-  -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format()
-  end, { desc = 'Format current buffer with LSP' })
-  nmap('<leader>fmt', vim.lsp.buf.format, '[F]or[M]a[T] Document')
 end
 
 -- document existing key chains
-require('which-key').register({
+require('which-key').register {
   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
   ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
   ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
@@ -512,7 +499,7 @@ require('which-key').register({
   ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
   ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-})
+}
 
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
