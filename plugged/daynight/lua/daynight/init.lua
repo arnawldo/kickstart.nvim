@@ -8,17 +8,16 @@ function M.switch_color_scheme()
   local day_start = 8
   local day_end = 18
 
-  -- Gruvbox contrast
-  vim.g.gruvbox_material_background = 'soft'
-
   if current_hour >= day_start and current_hour < day_end then
     vim.opt.background = 'light'
   else
     vim.opt.background = 'dark'
   end
 
-
-  vim.cmd [[colorscheme gruvbox-material]] -- Set solarized as theme
+  -- Gruvbox contrast
+  vim.g.gruvbox_material_background = 'soft'
+  -- Set gruvbox theme
+  vim.cmd [[colorscheme gruvbox-material]]
 end
 
 -- Function to initialize the module
