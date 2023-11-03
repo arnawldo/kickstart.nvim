@@ -79,6 +79,10 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
+  -- Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more.
+  -- The plugin provides mappings to easily delete, change and add such surroundings in pairs.
+  'tpope/vim-surround',
+
   -- Seamlessly move between tmux panes and vim splits
   'christoomey/vim-tmux-navigator',
 
