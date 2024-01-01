@@ -334,7 +334,7 @@ require('lazy').setup({
       }
     end,
     init = function()
-      vim.keymap.set('n', '<leader>nt', ':NvimTreeToggle<CR>', { desc = 'Open [N]vim [T]ree' })
+      vim.keymap.set('n', '<leader>nt', ':NvimTreeFindFileToggle<CR>', { desc = 'Open [N]vim [T]ree' })
     end,
   },
 
