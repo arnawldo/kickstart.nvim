@@ -304,6 +304,17 @@ require('lazy').setup({
 -- Set highlight on search
 vim.o.hlsearch = false
 
+-- Use spaces instead of tabs
+vim.opt.expandtab = true
+
+-- Number of spaces to use for each step of (auto)indent
+vim.opt.shiftwidth = 2
+
+-- Number of spaces that a <Tab> in the file counts for
+vim.opt.tabstop = 2
+
+vim.o.smartcase = true
+
 -- Make line numbers default
 vim.wo.number = true
 
@@ -323,7 +334,6 @@ vim.o.undofile = true
 
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.ignorecase = true
-vim.o.smartcase = true
 
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
