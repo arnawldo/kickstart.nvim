@@ -443,8 +443,8 @@ vim.keymap.set('i', 'kj', '<Esc>:w<CR>', { noremap = true, silent = true, desc =
 
 -- Move between tabs
 vim.keymap.set('n', '<leader>tn', ':tabnew<CR>', { noremap = true, silent = true, desc = '[T]ab [N]ew' })
-vim.keymap.set('n', '<Tab>', ':tabnext<CR>', { noremap = true, silent = true, desc = 'Next Tab' })
-vim.keymap.set('n', '<S-Tab>', ':tabprevious<CR>', { noremap = true, silent = true, desc = 'Previous Tab' })
+vim.keymap.set('n', '<Tab>', ':tabnext<CR>', { noremap = true, silent = true, desc = '[T]ab [N]ext' })
+vim.keymap.set('n', '<S-Tab>', ':tabprevious<CR>', { noremap = true, silent = true, desc = '[P]revious [T]ab' })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
