@@ -15,7 +15,7 @@ function M.switch_color_scheme()
   end
 
   -- Gruvbox contrast
-  vim.g.gruvbox_material_background = 'soft'
+  vim.g.gruvbox_material_background = 'hard'
   -- Set gruvbox theme
   vim.cmd [[colorscheme gruvbox-material]]
 end
