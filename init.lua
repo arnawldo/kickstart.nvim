@@ -100,7 +100,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -125,7 +125,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -435,7 +435,8 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', '<Leader>vr', ':e ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true })
 
 -- Source init.lua
-vim.keymap.set('n', '<Leader>sor', ':source ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true, desc = '[SO]u[r]ce init.lua' })
+vim.keymap.set('n', '<Leader>sor', ':source ~/.config/nvim/init.lua<CR>',
+  { noremap = true, silent = true, desc = '[SO]u[r]ce init.lua' })
 
 -- Exit INSERT mode by pressing jk or kj, write to file after
 vim.keymap.set('i', 'jk', '<Esc>:w<CR>', { noremap = true, silent = true, desc = 'Write buffer' })
