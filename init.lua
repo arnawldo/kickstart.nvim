@@ -88,6 +88,9 @@ require('lazy').setup({
   -- Seamlessly move between tmux panes and vim splits
   'christoomey/vim-tmux-navigator',
 
+  -- GitHub Copilot
+  'github/copilot.vim',
+
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -203,17 +206,6 @@ require('lazy').setup({
     },
   },
 
-  -- -- This will be my backup theme
-  -- {
-  --   -- Theme inspired by Atom
-  --   'navarasu/onedark.nvim',
-  --   priority = 1000,
-  --   config = function()
-  --     vim.opt.background = 'light'
-  --     vim.cmd [[colorscheme onedark]]
-  --   end
-  -- },
-
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -270,21 +262,6 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
-  -- {
-  --   'nvim-neo-tree/neo-tree.nvim',
-  --   branch = 'v3.x',
-  --   dependencies = {
-  --     'nvim-lua/plenary.nvim',
-  --     'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
-  --     'MunifTanjim/nui.nvim',
-  --   },
-  --   config = function()
-  --     require('neo-tree').setup {}
-  --   end,
-  --   init = function()
-  --     vim.keymap.set('n', '<leader>nt', ':Neotree toggle<CR>', { desc = 'Open [N]eo[T]ree' })
-  --   end,
-  -- },
   {
     'nvim-tree/nvim-tree.lua',
     version = '*',
