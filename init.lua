@@ -677,7 +677,7 @@ local servers = {
   elixirls = {},
   -- gopls = {},
   -- rust_analyzer = {},
-  -- tsserver = {},
+  tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
@@ -726,6 +726,7 @@ require('mason-tool-installer').setup {
     'black',
     'google-java-format',
     'isort',
+    'prettier',
   },
 
   -- if set to true this will check each tool for updates. If updates
@@ -780,6 +781,12 @@ require('formatter').setup {
     },
     -- Install this yourself - clangformat
     java = { require('formatter.filetypes.java').clangformat },
+
+    -- typescript, javascript, react
+    typescript = { require('formatter.filetypes.typescript').prettier },
+    typescriptreact = { require('formatter.filetypes.typescript').prettier },
+    javascript = { require('formatter.filetypes.typescript').prettier },
+    javascriptreact = { require('formatter.filetypes.typescript').prettier },
 
     -- Use the special "*" filetype for defining formatter configurations on
     -- any filetype
