@@ -88,8 +88,6 @@ require('lazy').setup({
   -- Seamlessly move between tmux panes and vim splits
   'christoomey/vim-tmux-navigator',
 
-  -- GitHub Copilot
-
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -128,6 +126,35 @@ require('lazy').setup({
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
+
+  -- GitHub Copilot
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    config = function()
+      require('copilot').setup {
+        filetypes = {
+          python = true,
+          lua = true,
+          java = true,
+          c = true,
+          html = true,
+          javascript = true,
+          typescript = true,
+          ['*'] = false, -- disable for all other filetypes and ignore default `filetypes`
+        },
+      }
+    end,
+  },
+  {
+    'zbirenbaum/copilot-cmp',
+    config = function()
+      require('copilot_cmp').setup()
+    end,
+  },
+  { 'AndreM222/copilot-lualine' },
+
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -212,9 +239,12 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'gruvbox',
-        component_separators = '|',
-        section_separators = '',
+        theme = 'auto',
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
+      },
+      sections = {
+        lualine_x = { 'copilot', 'encoding', 'fileformat', 'filetype' }, -- I added copilot here
       },
     },
   },
@@ -844,6 +874,8 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
+    -- Copilot source
+    { name = 'copilot' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'path' },
