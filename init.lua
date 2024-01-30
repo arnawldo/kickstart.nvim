@@ -135,8 +135,8 @@ require('lazy').setup({
       vim.o.foldenable = true
 
       -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
-      vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
-      vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+      vim.keymap.set('n', 'zR', require('ufo').openAllFolds, {desc="Reveal all folds"})
+      vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, {desc="Fold most"})
 
       -- Only depend on `nvim-treesitter/queries/filetype/folds.scm`,
       -- performance and stability are better than `foldmethod=nvim_treesitter#foldexpr()`
