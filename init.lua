@@ -504,6 +504,10 @@ vim.keymap.set('n', '<Leader>vr', ':e ~/.config/nvim/init.lua<CR>', { noremap = 
 -- Source init.lua
 vim.keymap.set('n', '<Leader>sor', ':source ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true, desc = '[SO]u[r]ce init.lua' })
 
+-- Open .tmux.conf 
+vim.keymap.set('n', '<Leader>tm', ':e ~/.tmux.conf<CR>', { noremap = true, silent = true , desc = 'Open Tmux config'})
+
+
 -- Exit INSERT mode by pressing jk or kj, write to file after
 vim.keymap.set('i', 'jk', '<Esc>:w<CR>', { noremap = true, silent = true, desc = 'Write buffer' })
 vim.keymap.set('i', 'kj', '<Esc>:w<CR>', { noremap = true, silent = true, desc = 'Write buffer' })
