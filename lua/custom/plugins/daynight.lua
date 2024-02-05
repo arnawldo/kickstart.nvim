@@ -11,6 +11,7 @@ return {
     'sainnhe/gruvbox-material',
     'rebelot/kanagawa.nvim',
     'lifepillar/vim-solarized8',
+    'folke/tokyonight.nvim',
   },
   init = function()
     require('daynight').init()

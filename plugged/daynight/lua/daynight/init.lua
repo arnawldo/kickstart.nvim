@@ -14,10 +14,10 @@ function M.switch_color_scheme()
     vim.opt.background = 'dark'
   end
 
-  -- Gruvbox contrast
-  vim.g.gruvbox_material_background = 'hard'
-  -- Set gruvbox theme
-  vim.cmd [[colorscheme gruvbox-material]]
+  -- Set tokyonight theme
+  vim.cmd [[colorscheme tokyonight]]
+
+  require('tokyonight').setup({style = 'storm'})
 end
 
 -- Function to initialize the module
