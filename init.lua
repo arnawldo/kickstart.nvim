@@ -135,8 +135,8 @@ require('lazy').setup({
       vim.o.foldenable = true
 
       -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
-      vim.keymap.set('n', 'zR', require('ufo').openAllFolds, {desc="Reveal all folds"})
-      vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, {desc="Fold most"})
+      vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = 'Reveal all folds' })
+      vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = 'Fold most' })
 
       -- Only depend on `nvim-treesitter/queries/filetype/folds.scm`,
       -- performance and stability are better than `foldmethod=nvim_treesitter#foldexpr()`
@@ -513,9 +513,8 @@ vim.keymap.set('n', '<Leader>vr', ':e ~/.config/nvim/init.lua<CR>', { noremap = 
 -- Source init.lua
 vim.keymap.set('n', '<Leader>sor', ':source ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true, desc = '[SO]u[r]ce init.lua' })
 
--- Open .tmux.conf 
-vim.keymap.set('n', '<Leader>tm', ':e ~/.tmux.conf<CR>', { noremap = true, silent = true , desc = 'Open Tmux config'})
-
+-- Open .tmux.conf
+vim.keymap.set('n', '<Leader>tm', ':e ~/.tmux.conf<CR>', { noremap = true, silent = true, desc = 'Open Tmux config' })
 
 -- Exit INSERT mode by pressing jk or kj, write to file after
 vim.keymap.set('i', 'jk', '<Esc>:w<CR>', { noremap = true, silent = true, desc = 'Write buffer' })
