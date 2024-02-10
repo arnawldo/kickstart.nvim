@@ -15,7 +15,7 @@ function M.switch_color_scheme()
   end
 
   -- Set tokyonight theme
-  vim.cmd [[colorscheme tokyonight]]
+  vim.cmd [[colorscheme gruvbox-material]]
 
   require('tokyonight').setup({style = 'storm'})
 end
