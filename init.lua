@@ -830,6 +830,7 @@ require('mason-tool-installer').setup {
     'google-java-format',
     'isort',
     'prettier',
+    'clang-format',
   },
 
   -- if set to true this will check each tool for updates. If updates
@@ -890,6 +891,30 @@ require('formatter').setup {
     typescriptreact = { require('formatter.filetypes.typescript').prettier },
     javascript = { require('formatter.filetypes.typescript').prettier },
     javascriptreact = { require('formatter.filetypes.typescript').prettier },
+
+    -- c, c++
+    c = {
+      -- clang-format
+      function()
+        return {
+          exe = 'clang-format',
+          args = { '--assume-filename', vim.api.nvim_buf_get_name(0) },
+          stdin = true,
+          cwd = vim.fn.expand '%:p:h', -- Run formatter in the directory of the file
+        }
+      end,
+    },
+    cpp = {
+      -- clang-format for C++ (covers .hpp files)
+      function()
+        return {
+          exe = 'clang-format',
+          args = { '--assume-filename', vim.api.nvim_buf_get_name(0) },
+          stdin = true,
+          cwd = vim.fn.expand '%:p:h', -- Run formatter in the directory of the file
+        }
+      end,
+    },
 
     -- Use the special "*" filetype for defining formatter configurations on
     -- any filetype
