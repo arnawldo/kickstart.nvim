@@ -203,6 +203,7 @@ require('lazy').setup({
           html = true,
           javascript = true,
           typescript = true,
+          typescriptreact = true,
           ['*'] = false, -- disable for all other filetypes and ignore default `filetypes`
         },
       }
