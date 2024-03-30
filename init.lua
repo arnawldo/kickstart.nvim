@@ -517,6 +517,9 @@ vim.keymap.set('n', '<Leader>sor', ':source ~/.config/nvim/init.lua<CR>', { nore
 -- Open .tmux.conf
 vim.keymap.set('n', '<Leader>tm', ':e ~/.tmux.conf<CR>', { noremap = true, silent = true, desc = 'Open Tmux config' })
 
+-- Open .zshrc
+vim.keymap.set('n', '<Leader>zsh', ':e ~/.zshrc<CR>', { noremap = true, silent = true, desc = 'Open zsh config aka zshrc' })
+
 -- Exit INSERT mode by pressing jk or kj, write to file after
 vim.keymap.set('i', 'jk', '<Esc>:w<CR>', { noremap = true, silent = true, desc = 'Write buffer' })
 vim.keymap.set('i', 'kj', '<Esc>:w<CR>', { noremap = true, silent = true, desc = 'Write buffer' })
