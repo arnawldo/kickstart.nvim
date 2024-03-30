@@ -927,6 +927,19 @@ require('formatter').setup {
       end,
     },
 
+    -- elixir
+    -- Install this yourself - mix format
+    elixir = {
+      function()
+        return {
+          exe = 'mix',
+          args = { 'format', vim.api.nvim_buf_get_name(0) },
+          stdin = false,
+          cwd = vim.fn.expand '%:p:h', -- Run formatter in the directory of the file
+        }
+      end,
+    },
+
     -- Use the special "*" filetype for defining formatter configurations on
     -- any filetype
     ['*'] = {
@@ -936,6 +949,15 @@ require('formatter').setup {
     },
   },
 }
+
+-- Format on save
+vim.api.nvim_create_autocmd('BufWritePost', {
+  -- Elixir
+  pattern = { '*.ex', '*.exs' },
+  callback = function()
+    vim.cmd 'FormatWrite'
+  end,
+})
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
