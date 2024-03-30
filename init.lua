@@ -200,6 +200,7 @@ require('lazy').setup({
           lua = true,
           java = true,
           c = true,
+          elixirls = true,
           html = true,
           javascript = true,
           typescript = true,
