@@ -74,6 +74,7 @@ require('lazy').setup({
     'tpope/vim-fugitive',
     init = function()
       vim.keymap.set('n', '<leader>gts', ':Git<CR>', { desc = '[G]i[t] [Fugitive version]' })
+      vim.keymap.set('n', '<leader>gtc', ':Git commit<CR>', { desc = 'Git commit' })
       vim.keymap.set('n', '<leader>gtps', ':Git push<CR>', { desc = 'Git push' })
       vim.keymap.set('n', '<leader>gtpl', ':Git pull<CR>', { desc = 'Git pull' })
     end,
