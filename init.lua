@@ -71,15 +71,21 @@ require('lazy').setup({
 
   -- Git related plugins
   {
-    'tpope/vim-fugitive',
+    'NeogitOrg/neogit',
+    commit = 'eca97dbbb964d0de1e17a21525d4f895669b1b2f',
+    dependencies = {
+      'nvim-lua/plenary.nvim', -- required
+      'sindrets/diffview.nvim', -- optional - Diff integration
+
+      -- Only one of these is needed, not both.
+      'nvim-telescope/telescope.nvim', -- optional
+      -- 'ibhagwan/fzf-lua', -- optional
+    },
+    config = true,
     init = function()
-      vim.keymap.set('n', '<leader>gts', ':Git<CR>', { desc = '[G]i[t] [Fugitive version]' })
-      vim.keymap.set('n', '<leader>gtc', ':Git commit<CR>', { desc = 'Git commit' })
-      vim.keymap.set('n', '<leader>gtps', ':Git push<CR>', { desc = 'Git push' })
-      vim.keymap.set('n', '<leader>gtpl', ':Git pull<CR>', { desc = 'Git pull' })
+      vim.keymap.set('n', '<leader>ng', ':Neogit<CR>', { desc = '[N]eo[G]it' })
     end,
   },
-  'tpope/vim-rhubarb',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
