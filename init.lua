@@ -920,6 +920,7 @@ require('lazy').setup({
       require('mini.animate').setup()
 
       -- Commenting
+      -- FIX gc and gcc conflicting
       require('mini.comment').setup()
     end,
   },
