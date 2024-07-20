@@ -279,9 +279,6 @@ require('lazy').setup({
   --  This is equivalent to:
   --    require('Comment').setup({})
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
-
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
   --    require('gitsigns').setup({ ... })
@@ -924,6 +921,9 @@ require('lazy').setup({
       --  Check out: https://github.com/echasnovski/mini.nvim
       --  My additions below...
       require('mini.animate').setup()
+
+      -- Commenting
+      require('mini.comment').setup()
     end,
   },
   { -- Highlight, edit, and navigate code
