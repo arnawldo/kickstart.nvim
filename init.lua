@@ -172,10 +172,6 @@ vim.opt.tabstop = 2
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- Execute lua code
-vim.keymap.set('n', '<space>x', ':.lua<CR>')
-vim.keymap.set('v', '<space>x', ':lua<CR>')
-
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -185,8 +181,12 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Open init.lua
 vim.keymap.set('n', '<Leader>vr', ':e ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true })
 
+-- Execute lua code
+vim.keymap.set('n', '<Leader>x', ':.lua<CR>')
+vim.keymap.set('v', '<Leader>x', ':lua<CR>')
+
 -- Source init.lua
-vim.keymap.set('n', '<Leader>xx', ':source ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true, desc = 'Source init.lua' })
+vim.keymap.set('n', '<Leader>X', ':source ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true, desc = 'Source init.lua' })
 
 -- Open .tmux.conf
 vim.keymap.set('n', '<Leader>tm', ':e ~/.tmux.conf<CR>', { noremap = true, silent = true, desc = 'Open Tmux config' })
