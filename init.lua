@@ -191,6 +191,9 @@ vim.keymap.set('n', '<Leader>X', ':source ~/.config/nvim/init.lua<CR>', { norema
 -- Open .tmux.conf
 vim.keymap.set('n', '<Leader>tm', ':e ~/.tmux.conf<CR>', { noremap = true, silent = true, desc = 'Open Tmux config' })
 
+-- Open Terminal
+vim.keymap.set('n', '<Leader>T', ':terminal<CR>A', { noremap = true, silent = true, desc = 'Open [T]erminal' })
+
 -- Open .zshrc
 vim.keymap.set('n', '<Leader>zsh', ':e ~/.zshrc<CR>', { noremap = true, silent = true, desc = 'Open zsh config aka zshrc' })
 
