@@ -186,7 +186,7 @@ vim.keymap.set('n', '<Leader>x', ':.lua<CR>')
 vim.keymap.set('v', '<Leader>x', ':lua<CR>')
 
 -- Source init.lua
-vim.keymap.set('n', '<Leader>X', ':source ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true, desc = 'Source init.lua' })
+vim.keymap.set('n', '<Leader>S', ':source ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true, desc = '[S]ource init.lua' })
 
 -- Open .tmux.conf
 vim.keymap.set('n', '<Leader>tm', ':e ~/.tmux.conf<CR>', { noremap = true, silent = true, desc = 'Open Tmux config' })
