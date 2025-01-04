@@ -1,10 +1,9 @@
--- My colorscheme plugin
-
 return {
-  dir = '~/.config/nvim/plugged/daynight',
-  name = 'My Custom Theme Setup',
-  lazy = false,
-  priority = 1000,
+  'arnawldo/daynight',
+  dir = '~/.config/nvim/lua/myplugins/daynight',
+  config = function()
+    require('myplugins.daynight').setup()
+  end,
   dependencies = {
     'navarasu/onedark.nvim',
     'ericbn/vim-solarized',
@@ -13,7 +12,6 @@ return {
     'lifepillar/vim-solarized8',
     'folke/tokyonight.nvim',
   },
-  init = function()
-    require('daynight').init()
-  end,
+  priority = 1000,
+  lazy = false,
 }
