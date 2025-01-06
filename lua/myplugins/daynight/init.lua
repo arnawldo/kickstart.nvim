@@ -1,8 +1,6 @@
 ---@class DayNightConfig
 ---@field day_start number Hour to start day mode (0-23)
 ---@field day_end number Hour to end day mode (0-23)
----@field light_theme string Theme to use during day
----@field dark_theme string Theme to use during night
 ---@field check_interval number Interval in ms to check time (default: 300000)
 
 local M = {}
@@ -11,8 +9,6 @@ local M = {}
 M.config = {
   day_start = 8,
   day_end = 18,
-  light_theme = 'gruvbox-material',
-  dark_theme = 'tokyonight-storm',
   check_interval = 300000,
 }
 
@@ -22,11 +18,10 @@ function M._update_theme()
   local current_hour = tonumber(os.date '%H')
   local is_daytime = current_hour >= M.config.day_start and current_hour < M.config.day_end
 
-  -- Set background and theme based on time
+  -- Set background based on time
   vim.opt.background = is_daytime and 'light' or 'dark'
-  local theme = is_daytime and M.config.light_theme or M.config.dark_theme
 
-  pcall(vim.cmd.colorscheme, theme)
+  pcall(vim.cmd.colorscheme, 'gruvbox-material')
 end
 
 ---Setup the daynight plugin

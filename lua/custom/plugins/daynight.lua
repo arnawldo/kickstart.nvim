@@ -2,10 +2,7 @@ return {
   'arnawldo/daynight',
   dir = '~/.config/nvim/lua/myplugins/daynight',
   config = function()
-    require('myplugins.daynight').setup {
-      light_theme = 'gruvbox-material',
-      dark_theme = 'tokyonight-storm',
-    }
+    require('myplugins.daynight').setup { day_start = 9, day_end = 17 }
   end,
   dependencies = {
     {
