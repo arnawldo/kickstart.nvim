@@ -61,7 +61,8 @@ function M.setup(_)
   vim.api.nvim_create_user_command('Floaterminal', M.toggle_terminal, { desc = 'Toggle floating terminal' })
 
   vim.keymap.set({ 'n', 't' }, '<Leader>T', M.toggle_terminal, { desc = 'Toggle Floating [T]erminal' })
-  vim.keymap.set('t', '<esc><esc>', M.toggle_terminal, { desc = 'Toggle Floating [T]erminal' })
+  vim.keymap.set('t', '<C-T>', M.toggle_terminal, { desc = 'Toggle Floating [T]erminal' })
+  vim.keymap.set('t', '<esc>', vim.cmd.stopinsert, { desc = 'Exit insert mode in terminal' })
 end
 
 return M
