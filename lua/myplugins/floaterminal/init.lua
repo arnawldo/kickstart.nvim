@@ -18,12 +18,7 @@ function M.open_float(opts)
   local row = math.floor((vim.o.lines - height) / 2)
 
   -- Create a buffer if it doesn't already exist
-  local buf = nil
-  if vim.api.nvim_buf_is_valid(opts.buf) then
-    buf = opts.buf
-  else
-    buf = vim.api.nvim_create_buf(false, true)
-  end
+  local buf = vim.api.nvim_buf_is_valid(opts.buf) and opts.buf or vim.api.nvim_create_buf(false, true)
 
   -- Configure the window
   local win_config = {
