@@ -656,6 +656,7 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'prettier', -- Used to format HTML/CSS/JS/etc
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -702,7 +703,7 @@ require('lazy').setup({
           lsp_format_opt = 'fallback'
         end
         return {
-          timeout_ms = 500,
+          timeout_ms = 1000,
           lsp_format = lsp_format_opt,
         }
       end,
@@ -718,6 +719,8 @@ require('lazy').setup({
         typescript = { 'eslint_d' },
         javascriptreact = { 'eslint_d' },
         typescriptreact = { 'eslint_d' },
+        html = { 'prettier' },
+        css = { 'prettier' },
       },
     },
   },
