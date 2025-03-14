@@ -21,3 +21,25 @@
 - [ ] Add terminal naming/labeling - Allow users to name terminals for easier identification.
 - [ ] Create floating terminal groups - Group related terminals together for specific workflows.
 - [ ] Implement terminal output capturing - Save terminal output to buffer or file.
+
+## General Neovim Configuration
+- [x] Modularize configuration - Move LSP, keybindings, and other large sections to separate files.
+- [ ] Add session management - Implement automatic session saving and restoration.
+- [ ] Enhance Git integration - Add more comprehensive Git commands and workflows.
+- [ ] Add project management - Implement project-based navigation and settings.
+- [ ] Optimize startup performance - Profile and optimize plugin loading for faster startup.
+- [ ] Add file explorer integration - Configure a dedicated file explorer with project awareness.
+- [ ] Implement workspace management - Add support for per-project configuration and settings.
+- [ ] Create custom status line - Design a more informative and customized status line.
+- [ ] Add diagnostic navigation improvements - Create better workflows for navigating diagnostics.
+- [ ] Implement snippet expansion - Add more snippet sources and custom snippets.
+- [ ] Add dashboard/start screen customization - Create a personalized dashboard with recent projects.
+- [ ] Implement better search integration - Configure more advanced search patterns and replacements.
+- [ ] Add language-specific configurations - Create tailored settings for different programming languages.
+- [ ] Implement testing integration - Add support for running tests from within Neovim.
+- [ ] Create documentation generation - Add tools for generating and viewing documentation.
+- [ ] Add database integration - Implement database client functionality within Neovim.
+- [ ] Implement spellcheck and writing tools - Add better support for writing prose and documentation.
+- [ ] Add remote development support - Configure tools for remote editing and development.
+- [ ] Create presentation mode - Add ability to use Neovim for presentations or demonstrations.
+- [ ] Implement better folding strategies - Configure more intuitive code folding behavior.
