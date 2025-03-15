@@ -32,7 +32,6 @@ M.config = {
       terminal = '<C-T>',
     },
     exit_insert = '<esc>',
-    close_terminal = { 'kj', 'jk' }, -- Key combination to close the terminal
   },
 }
 
@@ -129,28 +128,6 @@ function M.setup(opts)
 
   -- Use direct mapping for <Esc> in terminal mode
   vim.keymap.set('t', M.config.keymaps.exit_insert, '<C-\\><C-n>', { desc = 'Exit insert mode in terminal' })
-
-  -- Add keybindings for closing the terminal with key combinations
-  if type(M.config.keymaps.close_terminal) == 'table' then
-    for _, key_combo in pairs(M.config.keymaps.close_terminal) do
-      vim.keymap.set('t', key_combo, function()
-        -- Exit terminal mode and toggle in a single operation
-        vim.cmd [[
-          call feedkeys("\<C-\>\<C-n>", "n")
-          lua require('myplugins.floaterminal').toggle_terminal()
-        ]]
-      end, { desc = 'Close floating terminal' })
-    end
-  elseif M.config.keymaps.close_terminal then
-    -- Handle the case where it's a single string
-    vim.keymap.set('t', M.config.keymaps.close_terminal, function()
-      -- Exit terminal mode and toggle in a single operation
-      vim.cmd [[
-        call feedkeys("\<C-\>\<C-n>", "n")
-        lua require('myplugins.floaterminal').toggle_terminal()
-      ]]
-    end, { desc = 'Close floating terminal' })
-  end
 end
 
 return M
