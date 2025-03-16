@@ -33,7 +33,7 @@
 - [ ] Create custom status line - Design a more informative and customized status line.
 - [ ] Add diagnostic navigation improvements - Create better workflows for navigating diagnostics.
 - [ ] Implement snippet expansion - Add more snippet sources and custom snippets.
-- [ ] Add dashboard/start screen customization - Create a personalized dashboard with recent projects.
+- [x] Add dashboard/start screen customization - Create a personalized dashboard with recent projects.
 - [ ] Implement better search integration - Configure more advanced search patterns and replacements.
 - [ ] Add language-specific configurations - Create tailored settings for different programming languages.
 - [ ] Implement testing integration - Add support for running tests from within Neovim.
