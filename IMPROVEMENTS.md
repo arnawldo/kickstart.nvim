@@ -42,4 +42,4 @@
 - [ ] Implement spellcheck and writing tools - Add better support for writing prose and documentation.
 - [ ] Add remote development support - Configure tools for remote editing and development.
 - [ ] Create presentation mode - Add ability to use Neovim for presentations or demonstrations.
-- [ ] Implement better folding strategies - Configure more intuitive code folding behavior.
+- [x] Implement better folding strategies - Configure more intuitive code folding behavior.
