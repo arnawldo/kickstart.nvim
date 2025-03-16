@@ -44,6 +44,8 @@ local settings = {
       { ' File Browser', 'Telescope file_browser', '<leader>fb' },
       { ' Colorschemes', 'Telescope colorscheme', '<leader>cs' },
       { ' New File', "lua require'startup'.new_file()", '<leader>nf' },
+      { ' Edit init.lua', 'edit $MYVIMRC', '<leader>ei' },
+      { 'OMZ Edit zshrc', 'edit ~/.zshrc', '<leader>ez' },
     },
     highlight = 'String',
     default_color = '',
