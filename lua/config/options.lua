@@ -1,3 +1,8 @@
+return function()
+  -- UI Options
+  vim.opt.number = true -- Show line numbers
+  vim.opt.relativenumber = false -- Don't show relative line numbers
+  vim.opt.showmode = false -- Don't show the mode, since it's already in status line
   vim.opt.signcolumn = 'yes' -- Always show sign column
   vim.opt.cursorline = true -- Highlight current line
   vim.opt.termguicolors = true -- True color support
