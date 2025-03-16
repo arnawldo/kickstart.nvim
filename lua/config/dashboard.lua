@@ -1,4 +1,4 @@
-local setings = {
+local settings = {
   -- every line should be same width without escaped \
   header = {
     type = 'text',
