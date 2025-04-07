@@ -1,4 +1,4 @@
--- Useful plugin to show you pending keybinds.
+-- Revamp UI for messages, cmdline, popupmenu
 return {
   'folke/noice.nvim',
   event = 'VeryLazy',
