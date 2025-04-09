@@ -31,4 +31,18 @@ return function()
       end
     end,
   })
+
+  -- Add autocommand for more frequent file change checks
+  vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
+    group = vim.api.nvim_create_augroup('auto_checktime', { clear = true }),
+    pattern = '*', -- Apply to all files
+    desc = 'Check for file changes on disk more frequently',
+    callback = function()
+      -- Only check for buffers that are listed, modifiable, and have a filename
+      if vim.bo.buflisted and vim.bo.modifiable and vim.fn.filereadable(vim.api.nvim_buf_get_name(0)) == 1 then
+        -- Use 'checktime' command which respects the 'autoread' option
+        vim.cmd 'checktime'
+      end
+    end,
+  })
 end
