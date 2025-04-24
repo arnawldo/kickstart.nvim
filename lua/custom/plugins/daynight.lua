@@ -2,7 +2,7 @@ return {
   'arnawldo/daynight',
   dir = '~/.config/nvim/lua/myplugins/daynight',
   config = function()
-    require('myplugins.daynight').setup { day_start = 9, day_end = 17 }
+    require('myplugins.daynight').setup { day_start = 9, day_end = 20 }
   end,
   dependencies = {
     {
