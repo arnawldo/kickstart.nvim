@@ -145,7 +145,7 @@ return function()
     pyright = {},
     elixirls = {},
     -- gopls = {},
-    -- rust_analyzer = {},
+    rust_analyzer = {},
     ts_ls = {},
     jdtls = {},
     -- html = { filetypes = { 'html', 'twig', 'hbs'} },
