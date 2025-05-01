@@ -45,6 +45,7 @@ return { -- Autoformat
       html = { 'prettier' },
       css = { 'prettier' },
       xml = { 'xmlformatter' },
+      rust = { 'rustfmt' },
     },
   },
 }
