@@ -31,9 +31,6 @@ return {
       name = 'term',
     }
 
-    -- Set up additional keymaps if needed
-    vim.keymap.set('n', '<leader>N', ':ToggleTerm <CR>', { desc = '[N]ew tab terminal' })
-
     -- Set up lazygit terminal
     local Terminal = require('toggleterm.terminal').Terminal
     local lazygit = Terminal:new {
