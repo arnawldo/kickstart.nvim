@@ -1,3 +1,19 @@
+-- Detect the current shell
+local function get_shell_config()
+  local shell = os.getenv 'SHELL'
+  if shell then
+    if shell:match 'zsh$' then
+      return { '⚙️ Edit zshrc', 'edit ~/.zshrc', '<leader>zsh' }
+    elseif shell:match 'bash$' then
+      return { '⚙️ Edit bashrc', 'edit ~/.bashrc', '<leader>bash' }
+    elseif shell:match 'fish$' then
+      return { '⚙️ Edit fish config', 'edit ~/.config/fish/config.fish', '<leader>fish' }
+    end
+  end
+  -- Default fallback
+  return { '⚙️ Edit shell config', 'edit ~/.profile', '<leader>sh' }
+end
+
 local settings = {
   -- every line should be same width without escaped \
   header = {
@@ -41,13 +57,12 @@ local settings = {
     margin = 5,
     content = {
       { ' Find File', 'Telescope find_files', '<leader>ff' },
-      { '󰍉 Find Word', 'Telescope live_grep', '<leader>lg' },
-      { ' Recent Files', 'Telescope oldfiles', '<leader>of' },
-      { ' File Browser', 'Telescope file_browser', '<leader>fb' },
+      { '󰍉 Find Word', 'Telescope live_grep', '<leader>sg' },
+      { ' Recent Files', 'Telescope oldfiles', '<leader>s.' },
       { ' Colorschemes', 'Telescope colorscheme', '<leader>cs' },
       { ' New File', "lua require'startup'.new_file()", '<leader>nf' },
-      { ' Edit init.lua', 'edit $MYVIMRC', '<leader>ei' },
-      { 'OMZ Edit zshrc', 'edit ~/.zshrc', '<leader>ez' },
+      { '⚙️ Edit init.lua', 'edit $MYVIMRC', '<leader>ei' },
+      get_shell_config(),
     },
     highlight = 'String',
     default_color = '',
