@@ -31,6 +31,22 @@ return {
         inc_rename = false, -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = false, -- add a border to hover docs and signature help
       },
+      -- Configure routes to use different views based on the buffer filetype
+      routes = {
+        {
+          -- Use default vim message rendering for DBUI buffers
+          filter = {
+            event = 'msg_show',
+            find = '.*', -- Match any message
+            cond = function()
+              -- Check if current buffer is a DBUI buffer
+              local buf_ft = vim.bo.filetype
+              return buf_ft == 'dbui' or buf_ft == 'dbout' or buf_ft == 'sql'
+            end,
+          },
+          opts = { skip = true }, -- Skip noice handling, use vim's default
+        },
+      },
     }
     vim.keymap.set('n', '<leader>nd', function()
       require('noice').cmd 'dismiss'

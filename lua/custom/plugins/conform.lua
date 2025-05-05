@@ -46,6 +46,36 @@ return { -- Autoformat
       css = { 'prettier' },
       xml = { 'xmlformatter' },
       rust = { 'rustfmt' },
+      sql = { 'sql_formatter' },
+    },
+    formatters = {
+      sql_formatter = {
+        -- Use the Mason-installed sql-formatter
+        command = 'sql-formatter',
+        -- Configure sql-formatter to use uppercase for keywords, functions, and data types
+        args = {
+          '--language',
+          'sql',
+          '--config',
+          -- Inline JSON configuration for more specific control
+          vim.fn.json_encode {
+            keywordCase = 'upper', -- SQL keywords like SELECT, WHERE
+            dataTypeCase = 'upper', -- Data types like VARCHAR, INTEGER
+            functionCase = 'upper', -- Function names like COUNT, SUM
+            identifierCase = 'preserve', -- Keep table and column names as is
+          },
+        },
+      },
     },
   },
+  init = function()
+    -- Register formatters for dadbod query buffers
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = { 'dbout' },
+      callback = function()
+        -- Set the formatter for dbout buffers to be sql_formatter
+        require('conform').formatters_by_ft.dbout = { 'sql_formatter' }
+      end,
+    })
+  end,
 }

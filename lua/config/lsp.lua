@@ -188,6 +188,7 @@ return function()
   vim.list_extend(ensure_installed, {
     'stylua', -- Used to format Lua code
     'prettier', -- Used to format HTML/CSS/JS/etc
+    'sql-formatter', -- Used to format SQL code
   })
   require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
