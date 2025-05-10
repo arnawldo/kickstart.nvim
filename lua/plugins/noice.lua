@@ -48,6 +48,8 @@ return {
         },
       },
     }
+
+    -- Keymaps
     vim.keymap.set('n', '<leader>nd', function()
       require('noice').cmd 'dismiss'
     end, { desc = '[N]oice [D]ismiss' })
