@@ -24,7 +24,7 @@ return {
       desc = 'Set terminal keymaps when a terminal is opened',
     })
 
-    -- Configure toggleterm with all options
+    -- Configure toggleterm
     require('toggleterm').setup {
       open_mapping = [[<c-\>]],
       direction = 'tab',
@@ -42,6 +42,8 @@ return {
         -- Remove the jk mapping in this terminal buffer
         -- to avoid conflict with LazyGit
         vim.keymap.del('t', 'jk', { buffer = term.bufnr })
+        -- Remove the <esc> mapping in this terminal buffer
+        vim.keymap.del('t', '<esc>', { buffer = term.bufnr })
       end,
     }
 
