@@ -28,8 +28,12 @@ return {
     -- Configure toggleterm
     require('toggleterm').setup {
       open_mapping = [[<leader>T]],
-      direction = 'tab',
+      direction = 'float',
       name = 'term',
+      float_opts = {
+        border = 'double',
+        winblend = 10,
+      },
     }
 
     -- Set up lazygit terminal
@@ -37,7 +41,7 @@ return {
     local lazygit = Terminal:new {
       cmd = 'lazygit',
       display_name = 'lazygit',
-      direction = 'tab',
+      direction = 'float',
       hidden = true,
       on_open = function(term)
         -- Remove the jk mapping in this terminal buffer
