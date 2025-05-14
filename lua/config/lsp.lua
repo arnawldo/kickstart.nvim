@@ -189,7 +189,9 @@ return function()
     'stylua', -- Used to format Lua code
     'prettier', -- Used to format HTML/CSS/JS/etc
     'sql-formatter', -- Used to format SQL code
+    'codelldb', -- cpp, rust debugger
   })
+
   require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
   require('mason-lspconfig').setup {
