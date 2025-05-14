@@ -47,6 +47,8 @@ return { -- Autoformat
       xml = { 'xmlformatter' },
       rust = { 'rustfmt' },
       sql = { 'sql_formatter' },
+      c = { 'clang_format' },
+      cpp = { 'clang_format' },
     },
     formatters = {
       sql_formatter = {
