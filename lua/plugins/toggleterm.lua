@@ -4,6 +4,7 @@ return {
   config = function()
     local set_terminal_keymaps = function()
       local opts = { buffer = 0 }
+      -- Change to normal mode is
       vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
       vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
       -- vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
@@ -26,7 +27,7 @@ return {
 
     -- Configure toggleterm
     require('toggleterm').setup {
-      open_mapping = [[<c-\>]],
+      open_mapping = [[<leader>T]],
       direction = 'tab',
       name = 'term',
     }
