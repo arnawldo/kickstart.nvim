@@ -36,26 +36,41 @@ return {
       },
     }
 
-    -- Set up lazygit terminal
+    -- Set up lazygit and lazydocker terminal
     local Terminal = require('toggleterm.terminal').Terminal
+    local function on_open_custom_term(term)
+      -- Remove the jk mapping in this terminal buffer
+      -- to avoid conflict with running program e.g lazygit
+      vim.keymap.del('t', 'jk', { buffer = term.bufnr })
+      -- Remove the <esc> mapping in this terminal buffer
+      -- Sends straight to running program
+      vim.keymap.del('t', '<esc>', { buffer = term.bufnr })
+    end
+
+    local lazydocker = Terminal:new {
+      cmd = 'lazydocker',
+      display_name = 'lazydocker',
+      direction = 'float',
+      hidden = true,
+      on_open = on_open_custom_term,
+    }
+
     local lazygit = Terminal:new {
       cmd = 'lazygit',
       display_name = 'lazygit',
       direction = 'float',
       hidden = true,
-      on_open = function(term)
-        -- Remove the jk mapping in this terminal buffer
-        -- to avoid conflict with LazyGit
-        vim.keymap.del('t', 'jk', { buffer = term.bufnr })
-        -- Remove the <esc> mapping in this terminal buffer
-        vim.keymap.del('t', '<esc>', { buffer = term.bufnr })
-      end,
+      on_open = on_open_custom_term,
     }
 
-    function lazygit_toggle()
+    local function lazygit_toggle()
       lazygit:toggle()
+    end
+    local function lazydocker_toggle()
+      lazydocker:toggle()
     end
 
     vim.keymap.set('n', '<leader>lg', lazygit_toggle, { noremap = true, silent = true })
+    vim.keymap.set('n', '<leader>ld', lazydocker_toggle, { noremap = true, silent = true })
   end,
 }
