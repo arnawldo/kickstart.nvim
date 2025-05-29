@@ -49,6 +49,7 @@ return { -- Autoformat
       sql = { 'sql_formatter' },
       c = { 'clang_format' },
       cpp = { 'clang_format' },
+      nginx = { 'nginxfmt' },
     },
     formatters = {
       sql_formatter = {
