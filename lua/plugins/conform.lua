@@ -50,6 +50,7 @@ return { -- Autoformat
       c = { 'clang_format' },
       cpp = { 'clang_format' },
       nginx = { 'nginxfmt' },
+      markdown = { 'prettier' },
     },
     formatters = {
       sql_formatter = {
