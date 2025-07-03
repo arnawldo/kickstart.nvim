@@ -240,6 +240,7 @@ return {
       'prettier', -- Used to format HTML/CSS/JS/etc
       'sql-formatter', -- Used to format SQL code
       'codelldb', -- cpp, rust debugger
+      'beautysh', -- sh, bash, zsh
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
