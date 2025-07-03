@@ -51,6 +51,9 @@ return { -- Autoformat
       cpp = { 'clang_format' },
       nginx = { 'nginxfmt' },
       markdown = { 'prettier' },
+      bash = { 'beautysh' },
+      zsh = { 'beautysh' },
+      sh = { 'beautysh' },
     },
     formatters = {
       sql_formatter = {
