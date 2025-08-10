@@ -70,6 +70,9 @@ return { -- Collection of various small independent plugins/modules
     }
     vim.keymap.set('n', '<Leader>mm', MiniMap.toggle)
 
+    -- Icons
+    require('mini.icons').setup()
+
     -- ... and there is more!
     --  Check out: https://github.com/echasnovski/mini.nvim
   end,
