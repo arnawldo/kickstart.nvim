@@ -37,6 +37,9 @@ return { -- Collection of various small independent plugins/modules
     -- Comments
     require('mini.comment').setup()
 
+    -- "Word under cursor" is meant as in Vim's <cword>: something user would get as 'iw' text object.
+    require('mini.cursorword').setup()
+
     -- ... and there is more!
     --  Check out: https://github.com/echasnovski/mini.nvim
   end,
