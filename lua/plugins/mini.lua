@@ -55,6 +55,21 @@ return { -- Collection of various small independent plugins/modules
       },
     }
 
+    --  Mini map
+    local minimap = require 'mini.map'
+    minimap.setup {
+      symbols = {
+        encode = minimap.gen_encode_symbols.block '1x2',
+      },
+      integrations = {
+        minimap.gen_integration.builtin_search(),
+        minimap.gen_integration.diff(),
+        minimap.gen_integration.gitsigns(),
+        minimap.gen_integration.diagnostic(),
+      },
+    }
+    vim.keymap.set('n', '<Leader>mm', MiniMap.toggle)
+
     -- ... and there is more!
     --  Check out: https://github.com/echasnovski/mini.nvim
   end,
