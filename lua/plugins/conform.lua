@@ -44,6 +44,7 @@ return { -- Autoformat
       typescriptreact = { 'eslint_d' },
       html = { 'prettier' },
       css = { 'prettier' },
+      json = { 'prettier' },
       xml = { 'xmlformatter' },
       rust = { 'rustfmt' },
       sql = { 'sql_formatter' },
