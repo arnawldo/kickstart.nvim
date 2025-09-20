@@ -52,6 +52,7 @@ return { -- Autoformat
       cpp = { 'clang_format' },
       nginx = { 'nginxfmt' },
       markdown = { 'prettier' },
+      yaml = { 'prettier' },
       bash = { 'beautysh' },
       zsh = { 'beautysh' },
       sh = { 'beautysh' },

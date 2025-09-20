@@ -1,9 +1,8 @@
-return { -- Autocompletion
+return {
   'saghen/blink.cmp',
   event = 'VimEnter',
   version = '1.*',
   dependencies = {
-    -- Snippet Engine
     {
       'L3MON4D3/LuaSnip',
       version = '2.*',
@@ -75,9 +74,36 @@ return { -- Autocompletion
     },
 
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'lazydev' },
+      default = {
+        'lsp',
+        'path',
+        'snippets',
+        'lazydev',
+        'avante_commands',
+        'avante_mentions',
+        'avante_files',
+      },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+        -- Avante completion sources
+        avante_commands = {
+          name = 'avante_commands',
+          module = 'blink.compat.source',
+          score_offset = 90,
+          opts = {},
+        },
+        avante_mentions = {
+          name = 'avante_mentions',
+          module = 'blink.compat.source',
+          score_offset = 1000, -- High priority for @ mentions
+          opts = {},
+        },
+        avante_files = {
+          name = 'avante_files',
+          module = 'blink.compat.source',
+          score_offset = 100,
+          opts = {},
+        },
       },
     },
 
