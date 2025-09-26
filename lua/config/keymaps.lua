@@ -10,21 +10,6 @@ return function()
   -- Open init.lua
   vim.keymap.set('n', '<Leader>vr', ':e ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true })
 
-  -- Execute lua code
-  vim.keymap.set('n', '<Leader>x', ':.lua<CR>')
-  vim.keymap.set('v', '<Leader>x', ':lua<CR>')
-  vim.keymap.set('n', '<Leader>X', function()
-    if vim.bo.filetype == 'lua' then
-      vim.cmd 'luafile %'
-      vim.notify 'Executed current lua file'
-    else
-      vim.notify('Not a lua file', vim.log.levels.WARN)
-    end
-  end, { desc = 'Execute current lua buffer' })
-
-  -- Source init.lua
-  vim.keymap.set('n', '<Leader>S', ':source ~/.config/nvim/init.lua<CR>', { noremap = true, silent = true, desc = '[S]ource init.lua' })
-
   -- Open .tmux.conf
   vim.keymap.set('n', '<Leader>tm', ':e ~/.tmux.conf<CR>', { noremap = true, silent = true, desc = 'Open Tmux config' })
 

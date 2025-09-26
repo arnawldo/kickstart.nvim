@@ -32,7 +32,13 @@ return {
       name = 'term',
       float_opts = {
         border = 'double',
-        winblend = 10,
+        winblend = 20, -- Transparency
+        width = function()
+          return math.floor(vim.o.columns * 0.9) -- 90% of viewport width
+        end,
+        height = function()
+          return math.floor(vim.o.lines * 0.9) -- 90% of viewport height
+        end,
       },
     }
 
@@ -72,5 +78,11 @@ return {
 
     vim.keymap.set('n', '<leader>lg', lazygit_toggle, { noremap = true, silent = true })
     vim.keymap.set('n', '<leader>ld', lazydocker_toggle, { noremap = true, silent = true })
+
+    -- Send current line to terminal
+    vim.keymap.set('n', '<leader>S', ':ToggleTermSendCurrentLine<CR><ESC>:ToggleTerm<CR>', { desc = '[S]end line to terminal' })
+
+    -- Send visual selection to terminal
+    vim.keymap.set('v', '<leader>S', ':ToggleTermSendVisualSelection<CR><ESC>:ToggleTerm<CR>', { desc = '[S]end selection to terminal' })
   end,
 }
