@@ -56,6 +56,8 @@ return { -- Autoformat
       bash = { 'beautysh' },
       zsh = { 'beautysh' },
       sh = { 'beautysh' },
+      terraform = { 'terraform_fmt' },
+      tf = { 'terraform_fmt' },
     },
     formatters = {
       sql_formatter = {

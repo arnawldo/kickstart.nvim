@@ -205,6 +205,7 @@ return {
       -- But for many setups, the LSP (`ts_ls`) will work just fine
       ts_ls = {},
       nginx_language_server = {},
+      terraformls = {},
       lua_ls = {
         -- cmd = { ... },
         -- filetypes = { ... },
@@ -241,6 +242,8 @@ return {
       'sql-formatter', -- Used to format SQL code
       'codelldb', -- cpp, rust debugger
       'beautysh', -- sh, bash, zsh
+      'terraformls', -- Terraform language server
+      'terraform', -- Terraform formatter
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
