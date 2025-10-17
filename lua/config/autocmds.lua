@@ -45,30 +45,4 @@ return function()
       end
     end,
   })
-
-  -- Avante file type settings
-  vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'Avante',
-    desc = 'Avante buffer settings',
-    group = vim.api.nvim_create_augroup('avante_settings', { clear = true }),
-    callback = function()
-      vim.opt_local.wrap = true
-      vim.opt_local.spell = true
-      vim.opt_local.number = false
-      vim.opt_local.relativenumber = false
-      vim.opt_local.signcolumn = 'no'
-    end,
-  })
-
-  -- Auto-save before Avante operations (matches your jk/kj save pattern)
-  vim.api.nvim_create_autocmd('User', {
-    pattern = 'AvanteAsk',
-    desc = 'Auto-save before Avante operations',
-    group = vim.api.nvim_create_augroup('avante_auto_save', { clear = true }),
-    callback = function()
-      if vim.bo.modified then
-        vim.cmd 'silent! write'
-      end
-    end,
-  })
 end

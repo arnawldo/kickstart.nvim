@@ -51,21 +51,4 @@ return function()
   vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
   vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
   vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
-  -- Avante AI Assistant
-  vim.keymap.set('n', '<leader>aa', '<cmd>AvanteAsk<cr>', { desc = '[A]vante [A]sk' })
-  vim.keymap.set('v', '<leader>ae', '<cmd>AvanteEdit<cr>', { desc = '[A]vante [E]dit selection' })
-  vim.keymap.set('n', '<leader>at', '<cmd>AvanteToggle<cr>', { desc = '[A]vante [T]oggle sidebar' })
-  vim.keymap.set('n', '<leader>af', '<cmd>AvanteFocus<cr>', { desc = '[A]vante [F]ocus sidebar' })
-  vim.keymap.set('n', '<leader>ar', '<cmd>AvanteRefresh<cr>', { desc = '[A]vante [R]efresh' })
-  vim.keymap.set('n', '<leader>ac', '<cmd>AvanteClear<cr>', { desc = '[A]vante [C]lear chat' })
-  vim.keymap.set('n', '<leader>an', '<cmd>AvanteChatNew<cr>', { desc = '[A]vante [N]ew chat' })
-  vim.keymap.set('n', '<leader>ah', '<cmd>AvanteHistory<cr>', { desc = '[A]vante [H]istory' })
-  vim.keymap.set('n', '<leader>as', '<cmd>AvanteStop<cr>', { desc = '[A]vante [S]top request' })
-  vim.keymap.set('n', '<leader>am', '<cmd>AvanteSwitchProvider<cr>', { desc = '[A]vante switch [M]odel' })
-
-  -- Quick file addition to Avante context
-  vim.keymap.set('n', '<leader>a+', function()
-    require('avante.api').add_selected_file(vim.api.nvim_get_current_buf())
-  end, { desc = '[A]vante add current buffer' })
 end
