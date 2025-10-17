@@ -8,6 +8,7 @@ return {
       chat = {
         adapter = 'anthropic',
         model = 'claude-sonnet-4-20250514',
+        max_tokens = 4000,
       },
     },
     -- NOTE: The log_level is in `opts.opts`
