@@ -137,6 +137,13 @@ return {
           })
         end
 
+        -- Toggle between header and source file (C/C++ only, requires clangd)
+        if client and client.name == 'clangd' then
+          map('<leader>ch', function()
+            vim.lsp.buf.execute_command { command = 'clangd.switchSourceHeader', arguments = { vim.uri_from_bufnr(0) } }
+          end, '[C]++ Toggle [H]eader/Source')
+        end
+
         -- The following code creates a keymap to toggle inlay hints in your
         -- code, if the language server you are using supports them
         --
